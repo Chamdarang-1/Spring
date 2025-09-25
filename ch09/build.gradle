@@ -1,12 +1,12 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.5.5'
+    id 'org.springframework.boot' version '3.5.6'
     id 'io.spring.dependency-management' version '1.1.7'
 }
 
-group = 'kr.co.ch04'
+group = 'kr.co.ch09'
 version = '0.0.1-SNAPSHOT'
-description = 'ch04'
+description = 'ch09'
 
 java {
     toolchain {
@@ -25,10 +25,12 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5'
-    implementation 'org.springframework.session:spring-session-jdbc'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.mysql:mysql-connector-j'
@@ -37,7 +39,14 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.5'
+    testImplementation 'org.springframework.security:spring-security-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.7'
+    // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.7'
+    // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-jackson
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.7'
 }
 
 tasks.named('test') {
