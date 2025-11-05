@@ -18,7 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-@EnableMethodSecurity
+@EnableMethodSecurity // 메서드 단에서 권한검사 활성화
 @RequiredArgsConstructor
 @Configuration
 public class SecurityConfig {
@@ -39,7 +39,7 @@ public class SecurityConfig {
                 .requestMatchers("/manager/**").hasAnyRole("ADMIN", "MANAGER")
                 .requestMatchers("/member/**").hasAnyRole("ADMIN", "MANAGER", "MEMBER")
                 .requestMatchers("/guest/**").permitAll()
-                .requestMatchers("/user/").hasAnyRole("ADMIN", "MANAGER")
+                .requestMatchers("/cart/**").hasAnyRole("ADMIN", "MANAGER", "USER")
                 .anyRequest().permitAll()
         );
 

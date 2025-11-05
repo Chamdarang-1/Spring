@@ -10,6 +10,9 @@ server:
     servlet:
         context-path: /ch09
 spring:
+    servlet:
+        multipart:
+            max-file-size: 10MB
     application:
         name: ch09
     datasource:
@@ -32,3 +35,7 @@ spring:
 jwt:
     issuer: joseph8034@naver.com
     secret: BDE363989DFF426DCEB7C361DA13F100
+
+file:
+    upload:
+        path: uploads
